@@ -1,0 +1,36 @@
+<div class="table-container"> 
+    <h1 class="text-4xl font-extrabold text-gray-800 px-2 ">Point Table</h1>
+    <a href="http://localhost:4200/point-table" class="rounded-lg">
+        <button class=" rounded-lg hover:font-bold  bg-green-500 text-white py-2 px-4 hover:bg-pink-300 hover:scale-100 transition-all cu">
+          Refresh
+        </button>
+      </a>
+          <table class="cursor-pointer rounded-xl shadow-xl font-extrabold text-center mt-8 min-w-full table-auto  text-sm text-gray-800">
+            <thead class="bg-orange-50">
+              <tr>
+@for(heading of tableHeading; track $index){
+    <th class="font-extrabold px-6 py-3 text-lg text-black-900">{{heading}}</th>
+}
+              </tr>
+            </thead>
+            <tbody>
+@for(team of pointTable; track $index){
+    <tr class="hover:bg-gray-100  hover:scale-110 transition-all cu"
+    [ngClass]="{
+         'bg-green-200':$index<=5,
+         'bg-red-200':$index>5
+                                 }">
+        @if($index>0){
+        @for(data of team; track $index){
+        <td class="px-6 py-4">{{data}}</td>
+        }
+    }
+    </tr>
+    
+}
+
+            </tbody>
+          </table>
+        
+      
+</div> 
